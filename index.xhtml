@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
 <head>
@@ -23,14 +22,16 @@
 			text-align: center;
 		}
 
-		.sans {font-family: sans-serif;}
+		code {font-family: monospace;}
+
+		.sans, dl, dt, dd {font-family: sans-serif;}
 		.mono {font-family: monospace;}
 	</style>
 	<title>Schriftproben</title>
 </head>
 
 <body>
-	<h1>Kla&#0383;&#0383;i&#0383;che Numerale</h1>
+	<h1>Klaſſiſche Numerale</h1>
 	<table>
 		<tr>
 			<th>0</th>
@@ -72,7 +73,7 @@
 		</tr>
 	</table>
 
-	<h1>Compo&#0383;itnumerale</h1>
+	<h1>Compoſitnumerale</h1>
 	<table>
 		<tr>
 			<th>1</th>
@@ -165,7 +166,8 @@
 			<td>&#8553;&#8553;&#8553;&#8553;&#8546;</td>
 		</tr>
 	</table>
-	<h1>Be&#0383;ondere Zeichen und Ligaturen</h1>
+
+	<h1>Beſondere Zeichen und Ligaturen</h1>
 	<table>
 		<tr>
 			<th>langes S</th>
@@ -246,5 +248,39 @@
 			<td>&#xe04b;</td>
 		</tr>
 	</table>
+
+	<h1>Zuſätzliches</h1>
+	<ul>
+		<li>Der unten ſtehende Austauſch kann nicht auf Silben oder zuſammengeſetzte Wörter eingehen, weswegen trotzdem händisch nachzukorrigieren ist. (gemeint ist Wachſtube vs. Wachstube)</li>
+		<li>Dresden wird im Original tatſächlich mit einem Schluß-S geſchrieben.</li>
+	</ul>
+
+	<h2>Austauſch von Zeichen</h2>
+	<dl>
+		<p><dt>Code Extraktion</dt>
+		<dd>Das jeweilige Kapitel wird als <span class="mono">XHTML</span>-File abgespeichert.
+			<p><code>
+			$datei = Get-Content -Path "section0001.xhtml"<br />
+			$xml = [xml]$datei<br />
+			$allPars = $xml.html.body.p<br />
+			</code></p>
+		</dd></p>
+		<p><dt>Ersetzungen</dt>
+		<dd>(in mehreren Durchläufen) werden Ersetzungen nach langes S durchgeführt. (Der Prozess muss noch etwas optimiert werden…)
+			<p><code>
+			$longSreplaced = $allPars | % {<br />
+			$_ -creplace 's([^\W])','ſS1'<br />
+			}<br />
+			</code></p>
+			<span class="mono">'s([^\W])'</span> findet alle s, die kein Nicht-Wort-Zeichen (Wortzeichen sind alle Buchstaben und Ziffern, Nicht-Wort-Zeichen sind Satzzeichen und Whitespaces) danach haben. Weitere sinnvolle RegEx-Ausdrücke müssen noch erarbeitet werden.
+		</dd></p>
+		<p><dt>Absatz-Tags einfügen und speichern</dt>
+		<dd>
+			<p><code>
+			$longSreplaced  | % { "&lt;p&gt;$_&lt;/p&gt;" } | Set-Content -Path "Repl-section0001.html"<br />
+			</code></p>
+		</dd></p>
+	</dl>
+
 </body>
 </html>
