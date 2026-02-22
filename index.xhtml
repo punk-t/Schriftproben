@@ -275,7 +275,7 @@
 			}<br />
 			</code></p>
 			<span class="mono">'s([^\W])'</span> findet alle s, die kein Nicht-Wort-Zeichen (Wortzeichen sind alle Buchstaben und Ziffern, Nicht-Wort-Zeichen sind Satzzeichen und Whitespaces) danach haben. Weitere sinnvolle RegEx-Ausdrücke müssen noch erarbeitet werden.
-			<p><span class="mono">'s([^\W])'</span> ist der bessere Suchausdruck, da hier durch das Lookahead der Positionszeiger im Lookahead nicht weitergerückt wird. Dadurch wird auch 'ss' innerhalb des Wortes korrekt ersetzt: gesessen &#x2192; geſeſſen</p>
+			<p><span class="mono">'s(?=[^\W])'</span> ist der bessere Suchausdruck, da hier durch das Lookahead der Positionszeiger im Lookahead nicht weitergerückt wird. Dadurch wird auch 'ss' innerhalb des Wortes korrekt ersetzt: gesessen &#x2192; geſeſſen</p>
 		</dd></p>
 		<p><dt>Absatz-Tags einfügen und speichern</dt>
 		<dd>
