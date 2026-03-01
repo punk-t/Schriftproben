@@ -10,6 +10,18 @@
 	font-family: 'Fraktur3';
 	src: url('CATProfessorKrauseFraktur.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'Fraktur4';
+	src: url('Friedolin.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Fraktur5';
+	src: url('Goeschen_UNZ1A.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Fraktur6';
+	src: url('JenaGotisch.ttf') format('truetype');
+}
 
 body {
 	font-family: serif, Helvetica;
@@ -38,5 +50,17 @@ p.initial::first-letter {
 }
 #Fraktur3 {
 	font-family: Fraktur3;
+	font-size: 20px;
+}
+#Fraktur4 {
+	font-family: Fraktur4;
+	font-size: 20px;
+}
+#Fraktur5 {
+	font-family: Fraktur5;
+	font-size: 20px;
+}
+#Fraktur6 {
+	font-family: Fraktur6;
 	font-size: 20px;
 }
