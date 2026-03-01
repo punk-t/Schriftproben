@@ -1,0 +1,42 @@
+@font-face {
+	font-family: 'Fraktur1';
+	src: url('UnifrakturMaguntia.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Fraktur2';
+	src: url('CATZentenaerFrakturUNZ1.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Fraktur3';
+	src: url('CATProfessorKrauseFraktur.ttf') format('truetype');
+}
+
+body {
+	font-family: serif, Helvetica;
+}
+
+div {
+	width:640px;
+}
+
+p.initial::first-letter {
+  font-size: 3rem;
+  line-height: 0.8;
+  float: left;
+  margin: 0.1em 0.1em 0 0;
+  margin: 0 0.5rem 0.15rem 0;
+  font-weight: 200;
+}
+
+#Fraktur1 {
+	font-family: Fraktur1;
+	font-size: 20px;
+}
+#Fraktur2 {
+	font-family: Fraktur2;
+	font-size: 20px;
+}
+#Fraktur3 {
+	font-family: Fraktur3;
+	font-size: 20px;
+}
